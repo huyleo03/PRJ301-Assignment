@@ -4,23 +4,19 @@
  */
 package model;
 
-import java.util.Date;
+
 
 /**
  *
  * @author HELLO
  */
 public class Class {
-     private int id;
+    private int id;
     private String name;
-    private Date date;
-    private String time;
 
-    public Class(int id, String name, Date date, String time) {
+    public Class(int id, String name) {
         this.id = id;
         this.name = name;
-        this.date = date;
-        this.time = time;
     }
 
     public int getId() {
@@ -39,21 +35,7 @@ public class Class {
         this.name = name;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
+  
     
     
 }
