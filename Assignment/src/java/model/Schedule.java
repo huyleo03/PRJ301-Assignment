@@ -10,25 +10,17 @@ import java.util.Date;
  *
  * @author HELLO
  */
-public class Attendance {
-    private int studentId;
-    private int classId; 
+public class Schedule {
+    private int classId;
+    private int subjectId;
     private Date date;
-    private boolean attendanceStatus;
+    private String time;
 
-    public Attendance(int studentId, int classId, Date date, boolean attendanceStatus) {
-        this.studentId = studentId;
+    public Schedule(int classId, int subjectId, Date date, String time) {
         this.classId = classId;
+        this.subjectId = subjectId;
         this.date = date;
-        this.attendanceStatus = attendanceStatus;
-    }
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+        this.time = time;
     }
 
     public int getClassId() {
@@ -39,6 +31,14 @@ public class Attendance {
         this.classId = classId;
     }
 
+    public int getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(int subjectId) {
+        this.subjectId = subjectId;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -47,16 +47,13 @@ public class Attendance {
         this.date = date;
     }
 
-    public boolean isAttendanceStatus() {
-        return attendanceStatus;
+    public String getTime() {
+        return time;
     }
 
-    public void setAttendanceStatus(boolean attendanceStatus) {
-        this.attendanceStatus = attendanceStatus;
+    public void setTime(String time) {
+        this.time = time;
     }
-    
-    
-
     
     
 }

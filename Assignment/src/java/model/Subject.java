@@ -8,17 +8,13 @@ package model;
  *
  * @author HELLO
  */
-public class Student {
+public class Subject {
     private int id;
     private String name;
-    private String dob; 
-    private String className;
 
-    public Student(int id, String name, String dob, String className) {
+    public Subject(int id, String name) {
         this.id = id;
         this.name = name;
-        this.dob = dob;
-        this.className = className;
     }
 
     public int getId() {
@@ -36,24 +32,6 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-   
     
     
 }
