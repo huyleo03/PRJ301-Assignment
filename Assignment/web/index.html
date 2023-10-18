@@ -1,15 +1,78 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Điểm danh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: none; /* Ẩn trang khi chưa tải xong */
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: opacity 0.3s; /* Thêm hiệu ứng cho opacity */
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
+        <a href="login" id="loginLink"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+    </div>
+
+    <div class="content">
+        <h1>Chào mừng đến với hệ thống điểm danh</h1>
+        <p>Đây là hệ thống điểm danh dành riêng cho giáo viên.</p>
+        <p>Để sử dụng hệ thống, vui lòng <a href="login">đăng nhập</a>.</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Hiển thị trang khi tải xong với hiệu ứng fadeIn
+            $("body").fadeIn(1000);
+
+            // Thêm hiệu ứng cho liên kết Đăng nhập
+            $("#loginLink").hover(
+                function() {
+                    $(this).css("opacity", "0.7");
+                }, function() {
+                    $(this).css("opacity", "1");
+                }
+            );
+        });
+    </script>
+</body>
+
 </html>
