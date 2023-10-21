@@ -9,20 +9,18 @@ package model;
  * @author HELLO
  */
 public class User {
+
     String username;
     String password;
-    String displayName;
 
     public User() {
     }
-    
-    
 
-    public User(String username, String password, String displayName) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.displayName = displayName;
     }
+
 
     public String getUsername() {
         return username;
@@ -39,17 +37,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-
-    
-    
-    
 }

@@ -13,64 +13,68 @@
             background-color: #f2f2f2;
             margin: 0;
             padding: 0;
-            display: none; /* Ẩn trang khi chưa tải xong */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #5DADE2, #E74C3C);
         }
 
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
             color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            transition: opacity 0.3s; /* Thêm hiệu ứng cho opacity */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .content {
+        .login-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
-            max-width: 800px;
-            margin: 30px auto;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
+
+        .login-buttons a {
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .login-buttons a:hover {
+            transform: translateY(-3px);
+        }
+
+        .login-buttons .login {
+            background-color: rgba(52, 152, 219, 0.8);
+            color: #fff;
+        }
+
+        .login-buttons .register {
+            background-color: rgba(46, 204, 113, 0.8);
+            color: #fff;
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
-        <a href="login" id="loginLink"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
-    </div>
 
-    <div class="content">
-        <h1>Chào mừng đến với hệ thống điểm danh</h1>
-        <p>Đây là hệ thống điểm danh dành riêng cho giáo viên.</p>
-        <p>Để sử dụng hệ thống, vui lòng <a href="login">đăng nhập</a>.</p>
+    <h1>Chào mừng đến với hệ thống điểm danh</h1>
+
+    <div class="login-buttons">
+        <a href="login" class="login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+        <a href="register" class="register"><i class="fas fa-user-plus"></i> Đăng kí</a>
     </div>
 
     <script>
         $(document).ready(function() {
             // Hiển thị trang khi tải xong với hiệu ứng fadeIn
-            $("body").fadeIn(1000);
-
-            // Thêm hiệu ứng cho liên kết Đăng nhập
-            $("#loginLink").hover(
-                function() {
-                    $(this).css("opacity", "0.7");
-                }, function() {
-                    $(this).css("opacity", "1");
-                }
-            );
+            $("body").hide().fadeIn(1000);
         });
     </script>
 </body>
