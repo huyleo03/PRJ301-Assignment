@@ -1,82 +1,58 @@
 <!DOCTYPE html>
 <html lang="vi">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ - Điểm danh</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background: linear-gradient(45deg, #5DADE2, #E74C3C);
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang chủ - Điểm danh</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding-top: 50px;
+            }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+            h1 {
+                color: #333;
+            }
 
-        .login-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-        }
+            a {
+                display: inline-block;
+                margin: 10px;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: white;
+                background-color: #4CAF50;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
 
-        .login-buttons a {
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
-        }
+            a:hover {
+                background-color: #45a049;
+            }
 
-        .login-buttons a:hover {
-            transform: translateY(-3px);
-        }
+            a i {
+                margin-right: 5px;
+            }
 
-        .login-buttons .login {
-            background-color: rgba(52, 152, 219, 0.8);
-            color: #fff;
-        }
+        </style>
+    </head>
 
-        .login-buttons .register {
-            background-color: rgba(46, 204, 113, 0.8);
-            color: #fff;
-        }
+    <body>
 
-    </style>
-</head>
+        <h1>Chào mừng đến với hệ thống điểm danh</h1>
+        <a href="timetable.jsp">TimeTable</a>
+        <a href="AttendanceTaking.jsp">AttendanceTaking</a>
+        <a href="edit.jsp">Edit</a>
 
-<body>
+        <a href="login" ><i ></i> Đăng nhập</a>
+        <a href="register"><i ></i> Đăng kí</a>
+        <a href="logout"><i ></i> Đăng xuất</a>
 
-    <h1>Chào mừng đến với hệ thống điểm danh</h1>
 
-    <div class="login-buttons">
-        <a href="login" class="login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
-        <a href="register" class="register"><i class="fas fa-user-plus"></i> Đăng kí</a>
-    </div>
 
-    <script>
-        $(document).ready(function() {
-            // Hiển thị trang khi tải xong với hiệu ứng fadeIn
-            $("body").hide().fadeIn(1000);
-        });
-    </script>
-</body>
+    </body>
 
 </html>
