@@ -66,10 +66,10 @@ public class UserDAO extends DBContext {
         }
         return false;
     }
-    public static void main(String[] args) {
-        User user = new User("giahuy","12345");
-        UserDAO dal = new UserDAO();
-        dal.insert(user);
-    }
+//    public static void main(String[] args) {
+//        User user = new User("giahuy","12345");
+//        UserDAO dal = new UserDAO();
+//        dal.insert(user);
+//    }
 }
 

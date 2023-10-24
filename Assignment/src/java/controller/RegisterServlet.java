@@ -73,22 +73,26 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("user");
         String password = request.getParameter("pass");
+        User param = new User();
+        param.setUsername(username);
+        param.setPassword(password);
+        UserDAO db = new UserDAO();
+        User logged = db.get(param);
         // Kiểm tra dữ liệu hợp lệ
-        if (username == null || password == null) {
+        if (username.isEmpty() || password.isEmpty()) {
             request.setAttribute("error", "Vui lòng nhập đầy đủ thông tin");
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }
 
         // Kiểm tra username đã tồn tại chưa
-        UserDAO userDAO = new UserDAO();
-        if (userDAO.checkExistUsername(username)) {
+        if (db.checkExistUsername(username)) {
             request.setAttribute("error", "Tên đăng nhập đã tồn tại");
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }
 
         // Tạo user mới và lưu vào database
         User newUser = new User(username, password);
-        userDAO.insert(newUser);
+        db.insert(newUser);
 
         // Chuyển hướng sang trang thông báo thành công
         response.sendRedirect("home.jsp");

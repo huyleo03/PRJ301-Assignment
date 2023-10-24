@@ -12,6 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <a href="timetable.jsp">TimeTable</a>
+        <a href="AttendanceTaking.jsp">AttendanceTaking</a>
+        <a href="edit.jsp">Edit</a>
     </body>
 </html>

@@ -18,6 +18,7 @@
               out.println(request.getAttribute("error")); 
             }
         %>
+
         <form action="register" method="post">
             Enter Username : <input type="text" name="user"/><br/>
             Enter Password : <input type="password" name="pass"/><br/>
