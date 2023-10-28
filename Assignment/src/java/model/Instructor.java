@@ -10,10 +10,11 @@ import java.util.ArrayList;
  *
  * @author sonnt
  */
-public class Subject implements IBaseModel{
+public class Instructor implements IBaseModel{
     private int id;
     private String name;
     private ArrayList<Group> groups = new ArrayList<>();
+    private ArrayList<Session> sessions = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -37,6 +38,14 @@ public class Subject implements IBaseModel{
 
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
+    }
+
+    public ArrayList<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(ArrayList<Session> sessions) {
+        this.sessions = sessions;
     }
     
 }

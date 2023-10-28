@@ -92,6 +92,7 @@ public class LoginServlet extends HttpServlet {
                 response.addCookie(c_pass);
             }
             response.sendRedirect("home.jsp");;
+            
         } else {
             response.getWriter().println("invalid username or password!");
         }

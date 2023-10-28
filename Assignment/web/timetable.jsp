@@ -1,75 +1,50 @@
 <%-- 
     Document   : timetable
-    Created on : Oct 9, 2023, 2:27:51 PM
-    Author     : HELLO
+    Created on : Oct 18, 2023, 2:16:05 PM
+    Author     : sonnt
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Thời khóa biểu</title>
-        <style>
-        body {
-        font-family: Arial, sans-serif;
-        }
-
-        h2 {
-        text-align: center;
-        }
-
-        table {
-        width: 80%;
-        margin: 0 auto;
-        border-collapse: collapse;
-        }
-
-        td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 16px;
-        }
-
-        tr:nth-child(even) {
-        background-color: #dddddd;
-        }
-
-        th {
-        background-color: #0077b6;
-        color: white;
-        }
-        </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
     </head>
-
     <body>
-        <h2>Timetable</h2>
-
-        <table border="1">
+        <form action="timetable" method="GET">
+            <input type="hidden" name="id" value="${param.id}"/>
+            From <input type="date" value="${requestScope.from}" name="from"/> 
+            To <input type="date" value="${requestScope.to}" name="to"/> 
+            <input type="submit" value="View"/>
+        </form>
+        <table border="1px">
             <tr>
-                <th>Slot</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th> 
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
+                <td>Slot/Date</td>
+                <c:forEach items="${requestScope.dates}" var="d">
+                    <td>
+                        ${d}
+                    </td>
+                </c:forEach>
             </tr>
-
-            <c:forEach begin="1" end="4" var="i">
+            <c:forEach items="${requestScope.slots}" var="s" varStatus="loop">
                 <tr>
-                    <td>Slot ${i}</td>
-
-                    <c:forEach begin="2" end="7">
+                    <td>${s.id}-${s.description}</td>
+                    <c:forEach items="${requestScope.dates}" var="d">
                         <td>
-                            <c:out value="Subject ${i} ${j}"/>  
+                            <c:forEach items="${requestScope.sessions}" var="k">
+                                <c:if test="${k.date eq d and k.slot.id eq s.id}">
+                                    <a href="att?id=${k.id}">
+                                        ${k.group.name}-${k.group.subject.name}-${k.room.id}
+                                    </a>
+                                </c:if>
+                            </c:forEach>
                         </td>
                     </c:forEach>
-
                 </tr>
             </c:forEach>
 
         </table>
-
     </body>
 </html>

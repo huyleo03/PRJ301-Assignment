@@ -22,6 +22,7 @@
         <form action="register" method="post">
             Enter Username : <input type="text" name="user"/><br/>
             Enter Password : <input type="password" name="pass"/><br/>
+            Enter your fullname : <input type="text" name="fullname"/><br/>
             <input type="submit" value="REGISTER"/>
         </form>
     </body>

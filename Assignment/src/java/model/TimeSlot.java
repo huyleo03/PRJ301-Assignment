@@ -4,20 +4,13 @@
  */
 package model;
 
-
-
 /**
  *
- * @author HELLO
+ * @author sonnt
  */
-public class Class {
+public class TimeSlot implements IBaseModel{
     private int id;
-    private String name;
-
-    public Class(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    private String description;
 
     public int getId() {
         return id;
@@ -27,15 +20,12 @@ public class Class {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
-
-  
-    
     
 }

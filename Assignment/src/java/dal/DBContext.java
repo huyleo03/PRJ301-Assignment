@@ -7,18 +7,19 @@ package dal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import model.IBaseModel;
 
 /**
  *
  * @author HELLO
  */
-public class DBContext {
+public class DBContext <T extends IBaseModel> {
     protected Connection connection;
     public DBContext()
     {
         try {
             // Edit URL , username, password to authenticate with your MS SQL Server
-            String url = "jdbc:sqlserver://LAPTOP-V02VPETI\\SQLEXPRESS:1433;databaseName=Assignment";
+            String url = "jdbc:sqlserver://LAPTOP-V02VPETI\\SQLEXPRESS:1433;databaseName=Ass";
             String username = "sa";
             String password = "123";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

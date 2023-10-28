@@ -39,13 +39,15 @@ public class UserDAO extends DBContext {
     public User insert(User c) {
         String sql = "INSERT INTO [User]\n"
                 + "           ([userName]\n"
-                + "           ,[password])\n"
+                + "           ,[password]\n"
+                + "           ,[displayName])\n"
                 + "     VALUES\n"
-                + "           (?,?);";
+                + "           (?,?,?);";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, c.getUsername());
             st.setString(2, c.getPassword());
+            st.setString(3, c.getDisplayName());
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
@@ -67,7 +69,7 @@ public class UserDAO extends DBContext {
         return false;
     }
 //    public static void main(String[] args) {
-//        User user = new User("giahuy","12345");
+//        User user = new User("giahuy","12345","Gia HUy");
 //        UserDAO dal = new UserDAO();
 //        dal.insert(user);
 //    }

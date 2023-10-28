@@ -1,11 +1,9 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login Page</title>
-        
-        <!-- CSS Styles -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Form</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -13,70 +11,112 @@
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
-                background-color: #f4f4f4;
+                background-color: #000044;
+                background-image:
+                    radial-gradient(2px 2px at 10% 10%, #f2f2f2 90%, transparent),
+                    radial-gradient(3px 3px at 20% 20%, #f2f2f2 70%, transparent),
+                    radial-gradient(2px 2px at 40% 40%, #f2f2f2 90%, transparent),
+                    radial-gradient(2px 2px at 60% 60%, #f2f2f2 80%, transparent),
+                    radial-gradient(3px 3px at 80% 80%, #f2f2f2 90%, transparent),
+                    radial-gradient(3px 3px at 90% 90%, #f2f2f2 90%, transparent);
+  
             }
-            form {
+
+            .wrapper {
+                display: flex;
+                align-items: center; /* Thêm thu?c tính này ?? c?n gi?a theo chi?u d?c */
+                width: 60%;
+                height: 60%;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                overflow: hidden;
+                background-color: #ffffff;
+            }
+            .wrapper img {
+                width: 50%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .login-container {
+                width: 50%;
                 padding: 20px;
-                border: 1px solid #ccc;
-                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-                background-color: #fff;
-                border-radius: 5px;
+                background-color: #ffffff;
             }
-            input[type="text"], input[type="password"] {
+            .login-input {
                 width: 100%;
                 padding: 10px;
-                margin: 10px 0;
-                border: 1px solid #ccc;
+                margin-bottom: 10px;
                 border-radius: 4px;
+                border: 1px solid #e0e0e0;
             }
-            input[type="submit"] {
-                padding: 10px 15px;
+            .login-btn {
+                width: 100%;
+                padding: 10px;
                 background-color: #007BFF;
+                color: #ffffff;
                 border: none;
-                color: #fff;
                 border-radius: 4px;
                 cursor: pointer;
+                margin-bottom: 10px;
             }
-            input[type="submit"]:hover {
+            .remember-section {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .remember-section input[type="checkbox"] {
+                margin-right: 10px;
+            }
+
+            .remember-section label {
+                font-size: 14px;
+            }
+            .login-btn:hover {
                 background-color: #0056b3;
+                color: #f5f5f5;
+            }
+
+            .login-input:hover {
+                border: 1px solid #007BFF;
             }
         </style>
-        
-        <!-- JavaScript -->
-        <script>
-            // You can add JavaScript interactions here, for instance:
-            // - Form validation
-            // - Dynamic elements
-            // - AJAX calls
-        </script>
     </head>
     <body>
-        <form action="login" method="POST">
-            <label>Username:</label>
-            <input type="text" name="username"/> <br/>
-            <label>Password:</label>
-            <input type="password" name="password" /> <br/>
-            <input type="checkbox" name="remember" value="remember"/> Remember in this computer.<br/>
-            <input type="submit" value="Login"/>
-        </form>
-        
-         <script>
-            function validateForm() {
-                var username = document.forms[0]["username"].value;
-                var password = document.forms[0]["password"].value;
-                
-                if (username === "") {
-                    alert("Username must be filled out!");
-                    return false;
-                }
-                
-                if (password === "") {
-                    alert("Password must be filled out!");
-                    return false;
-                }
-                
-                return true;
-            }
+        <div class="wrapper">
+            <div class="login-container">
+                <form action="login" method="post">
+                    <input type="text" class="login-input" placeholder="Username" name="username">
+                    <input type="password" class="login-input" placeholder="Password" name="password">
+                    <div class="remember-section">
+                        <input type="checkbox" name="remember" value="remember" id="remember-checkbox">
+                        <label for="remember-checkbox">Remember in this computer.</label>
+                    </div>
+                    <button class="login-btn" type="submit">LOGIN</button>
+                </form>
+            </div>
+            <img src="img/pexels-anni-roenkae-3418396.jpg" alt="Background Image"/>
+        </div>
+        <script>
+            document.querySelector(".login-btn").addEventListener("mouseenter", function () {
+                this.style.backgroundColor = "#004999";
+                this.style.color = "#ffffff";
+            });
+
+            document.querySelector(".login-btn").addEventListener("mouseleave", function () {
+                this.style.backgroundColor = "";
+                this.style.color = "";
+            });
+
+            let inputs = document.querySelectorAll(".login-input");
+            inputs.forEach(input => {
+                input.addEventListener("mouseenter", function () {
+                    this.style.boxShadow = "0 0 5px #007BFF";
+                });
+                input.addEventListener("mouseleave", function () {
+                    this.style.boxShadow = "";
+                });
+            });
         </script>
     </body>
 </html>

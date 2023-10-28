@@ -4,22 +4,16 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author HELLO
+ * @author sonnt
  */
-public class Student {
+public class Student implements IBaseModel{
     private int id;
     private String name;
-    private String dob; 
-    private String className;
-
-    public Student(int id, String name, String dob, String className) {
-        this.id = id;
-        this.name = name;
-        this.dob = dob;
-        this.className = className;
-    }
+    private ArrayList<Group> groups = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -37,23 +31,12 @@ public class Student {
         this.name = name;
     }
 
-    public String getDob() {
-        return dob;
+    public ArrayList<Group> getGroups() {
+        return groups;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setGroups(ArrayList<Group> groups) {
+        this.groups = groups;
     }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-   
-    
     
 }

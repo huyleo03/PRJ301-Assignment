@@ -113,7 +113,7 @@ public class LoginFilter implements Filter {
             }
                     
         
-        Throwable problem = null;
+        Throwable problem = null; 
         try {
             chain.doFilter(request, response);
         } catch (Throwable t) {

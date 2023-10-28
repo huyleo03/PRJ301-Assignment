@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.User;
 import dal.UserDAO;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -73,11 +74,16 @@ public class RegisterServlet extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("user");
         String password = request.getParameter("pass");
+        String fullname = request.getParameter("displayname");
         User param = new User();
         param.setUsername(username);
         param.setPassword(password);
+        param.setUsername(fullname);
         UserDAO db = new UserDAO();
         User logged = db.get(param);
+        
+        HttpSession session = request.getSession();
+        session.setAttribute("account", logged);
         // Kiểm tra dữ liệu hợp lệ
         if (username.isEmpty() || password.isEmpty()) {
             request.setAttribute("error", "Vui lòng nhập đầy đủ thông tin");
@@ -91,7 +97,7 @@ public class RegisterServlet extends HttpServlet {
         }
 
         // Tạo user mới và lưu vào database
-        User newUser = new User(username, password);
+        User newUser = new User(username, password,fullname);
         db.insert(newUser);
 
         // Chuyển hướng sang trang thông báo thành công
