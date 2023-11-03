@@ -19,7 +19,7 @@ public class DBContext <T extends IBaseModel> {
     {
         try {
             // Edit URL , username, password to authenticate with your MS SQL Server
-            String url = "jdbc:sqlserver://LAPTOP-V02VPETI\\SQLEXPRESS:1433;databaseName=Ass";
+            String url = "jdbc:sqlserver://LAPTOP-V02VPETI\\SQLEXPRESS:1433;databaseName=Assignment103";
             String username = "sa";
             String password = "123";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -28,8 +28,8 @@ public class DBContext <T extends IBaseModel> {
             System.out.println(ex);
         }
     }
-//    public static void main(String[] args) {
-//        DBContext db = new DBContext();
-//        System.out.println(db.connection != null);
-//    }
+    public static void main(String[] args) {
+        DBContext db = new DBContext();
+        System.out.println(db.connection != null);
+    }
 }

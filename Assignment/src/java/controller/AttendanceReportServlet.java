@@ -5,24 +5,23 @@
 
 package controller;
 
-import dal.InstructorDAO;
-import dal.UserDAO;
+import dal.AttendanceReportDBContext;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.User;
-import model.Instructor;
+import java.util.List;
+import model.AttendanceReport;
 
 /**
  *
  * @author HELLO
  */
-public class LoginServlet extends HttpServlet {
+public class AttendanceReportServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -39,10 +38,10 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");  
+            out.println("<title>Servlet AttendanceReportServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet AttendanceReportServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,7 +58,13 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        int groupId = Integer.parseInt(request.getParameter("groupId"));
+        AttendanceReportDBContext dbContext = new AttendanceReportDBContext();
+        List<AttendanceReport> reports = dbContext.getAttendanceReport(groupId);
+        HttpSession session = request.getSession();
+        request.setAttribute("reports", reports);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("attendance_report.jsp");
+        dispatcher.forward(request, response);
     } 
 
     /** 
@@ -72,41 +77,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        User param = new User();
-        param.setUsername(username);
-        param.setPassword(password);
-        UserDAO db = new UserDAO();
-        User loggedUser = db.get(param);
-        //
-        HttpSession session = request.getSession();
-        Instructor ins = new Instructor();
-        InstructorDAO inst = new InstructorDAO();
-        ins = inst.getByUsername(username);
-        int iid = ins.getId();
-        session.setAttribute("iid", iid);
-        
-        if (loggedUser != null) {
-            
-            
-            session.setAttribute("account", loggedUser);
-            
-            String remember = request.getParameter("remember");
-            if (remember != null) {
-                Cookie c_user = new Cookie("user", username);
-                Cookie c_pass = new Cookie("pass", password);
-                c_user.setMaxAge(24 * 3600);
-                c_pass.setMaxAge(24 * 3600);
-                response.addCookie(c_user);
-                response.addCookie(c_pass);
-            }
-            response.sendRedirect("home.jsp");;
-            
-        } else {
-            response.sendRedirect("loginFail.jsp");;
-            
-        }
+        processRequest(request, response);
     }
 
     /** 

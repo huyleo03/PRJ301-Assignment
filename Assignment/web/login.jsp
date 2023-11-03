@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,23 +12,15 @@
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
-                background-color: #000044;
-                background-image:
-                    radial-gradient(2px 2px at 10% 10%, #f2f2f2 90%, transparent),
-                    radial-gradient(3px 3px at 20% 20%, #f2f2f2 70%, transparent),
-                    radial-gradient(2px 2px at 40% 40%, #f2f2f2 90%, transparent),
-                    radial-gradient(2px 2px at 60% 60%, #f2f2f2 80%, transparent),
-                    radial-gradient(3px 3px at 80% 80%, #f2f2f2 90%, transparent),
-                    radial-gradient(3px 3px at 90% 90%, #f2f2f2 90%, transparent);
-  
+                background-color: orange;
             }
 
             .wrapper {
                 display: flex;
-                align-items: center; /* Thêm thu?c tính này ?? c?n gi?a theo chi?u d?c */
+                align-items: center; /* ThÃªm thu?c tÃ­nh nÃ y ?? c?n gi?a theo chi?u d?c */
                 width: 60%;
                 height: 60%;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
                 border-radius: 10px;
                 overflow: hidden;
                 background-color: #ffffff;

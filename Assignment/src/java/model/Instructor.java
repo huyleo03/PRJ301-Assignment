@@ -16,6 +16,20 @@ public class Instructor implements IBaseModel{
     private ArrayList<Group> groups = new ArrayList<>();
     private ArrayList<Session> sessions = new ArrayList<>();
 
+    public Instructor(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Instructor(String name) {
+        this.name = name;
+    }
+    
+
+    public Instructor() {
+    }
+    
+    
     public int getId() {
         return id;
     }

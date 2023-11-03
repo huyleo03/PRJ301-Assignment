@@ -7,8 +7,12 @@
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/timetable</url-pattern>
-        <url-pattern>/AttendanceTaking.jsp</url-pattern>
+        <url-pattern>/att.jsp</url-pattern>
     </filter-mapping>
+    <servlet>
+        <servlet-name>AttendanceTakingServlet</servlet-name>
+        <servlet-class>controller.AttendanceTakingServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>controller.LoginServlet</servlet-class>
@@ -25,21 +29,37 @@
         <servlet-name>TimeTableServlet</servlet-name>
         <servlet-class>controller.TimeTableServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginFailServlet</servlet-name>
+        <servlet-class>controller.LoginFailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AttendanceReportServlet</servlet-name>
+        <servlet-class>controller.AttendanceReportServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AttendanceTakingServlet</servlet-name>
+        <url-pattern>/att</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>TimeTableServlet</servlet-name>
         <url-pattern>/timetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginFailServlet</servlet-name>
+        <url-pattern>/loginfail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AttendanceReportServlet</servlet-name>
+        <url-pattern>/atttendReport</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -39,29 +39,28 @@ public class UserDAO extends DBContext {
     public User insert(User c) {
         String sql = "INSERT INTO [User]\n"
                 + "           ([userName]\n"
-                + "           ,[password]\n"
-                + "           ,[displayName])\n"
+                + "           ,[password])\n"
                 + "     VALUES\n"
-                + "           (?,?,?);";
+                + "           (?,?);";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, c.getUsername());
             st.setString(2, c.getPassword());
-            st.setString(3, c.getDisplayName());
-            st.executeUpdate();
+            st.executeUpdate();;
         } catch (SQLException e) {
             System.out.println(e);
         }
         return c;
     }
+
     public boolean checkExistUsername(String username) {
         String sql = "SELECT * FROM dbo.[User] WHERE userName = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, username);
             ResultSet rs = st.executeQuery();
-            if(rs.next()){
-               return true;
+            if (rs.next()) {
+                return true;
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -69,9 +68,9 @@ public class UserDAO extends DBContext {
         return false;
     }
 //    public static void main(String[] args) {
-//        User user = new User("giahuy","12345","Gia HUy");
+//        User user = new User("giahuy123", "123456");
 //        UserDAO dal = new UserDAO();
 //        dal.insert(user);
+//
 //    }
 }
-

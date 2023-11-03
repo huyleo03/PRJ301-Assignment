@@ -12,39 +12,20 @@ public class User {
     int id;
     String username;
     String password;
-    String displayName;
+
+    public User(int id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
 
     public User() {
     }
-
+    
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
-
-    public User(String username, String password, String displayName) {
-        this.username = username;
-        this.password = password;
-        this.displayName = displayName;
-    }
-    
-    
-    public User(int id, String username, String password, String displayName) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.displayName = displayName;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-    
-    
 
     public int getId() {
         return id;
@@ -53,8 +34,6 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
-
 
     public String getUsername() {
         return username;
@@ -71,4 +50,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-}
+        
+    }
+
+
+    
+    
+
