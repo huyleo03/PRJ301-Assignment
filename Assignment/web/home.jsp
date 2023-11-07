@@ -150,9 +150,8 @@
         <nav>
             <div class="links-container">
                 <div class="main-links">
-                    <a href="timetable?id=${sessionScope.iid}">TimeTable</a>
-                    <a href="AttendanceTaking.jsp">AttendanceTaking</a>
-                    <a href="atttendReport">Attendance Report</a>
+                    <a href="timetable">TimeTable</a>
+                    <a href="chay">Attendance Report</a>
                     <div class="user-menu">
                         <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
                         <div class="dropdown">

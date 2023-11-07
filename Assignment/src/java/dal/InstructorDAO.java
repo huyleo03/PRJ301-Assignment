@@ -47,10 +47,25 @@ public class InstructorDAO extends DBContext {
         }
         return instructor;
     }
+
+    public int get(String username) {
+        try {
+            String sql = "SELECT * FROM [Instructor] WHERE iname = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, username);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return 0;
+    }   
 //    public static void main(String[] args) {
 //        Instructor ins = new Instructor();
 //        InstructorDAO inst = new InstructorDAO();
-//        ins = inst.getByUsername("sonnt");
+//        ins = inst.getByUsername("huyleo");
 //        int iid = ins.getId();
 //        System.out.println(iid);
 //    }

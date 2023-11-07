@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author HELLO
@@ -12,6 +14,9 @@ public class AttendanceReport {
 
     private int studentId;
     private String studentName;
+    private int sessionId;
+    private Date date;
+    private String status;
     private int totalPresent;
     private int totalAbsent;
 
@@ -19,14 +24,16 @@ public class AttendanceReport {
     public AttendanceReport() {
     }
 
-    public AttendanceReport(int studentId, String studentName, int totalPresent, int totalAbsent) {
+    public AttendanceReport(int studentId, String studentName, int sessionId, Date date, String status, int totalPresent, int totalAbsent) {
         this.studentId = studentId;
         this.studentName = studentName;
+        this.sessionId = sessionId;
+        this.date = date;
+        this.status = status;
         this.totalPresent = totalPresent;
         this.totalAbsent = totalAbsent;
     }
 
-    // Getters and Setters
     public int getStudentId() {
         return studentId;
     }
@@ -41,6 +48,30 @@ public class AttendanceReport {
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
+    }
+
+    public int getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(int sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getTotalPresent() {
@@ -58,4 +89,7 @@ public class AttendanceReport {
     public void setTotalAbsent(int totalAbsent) {
         this.totalAbsent = totalAbsent;
     }
+
+    
+
 }

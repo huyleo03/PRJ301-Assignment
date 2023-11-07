@@ -43,11 +43,10 @@ public class TimeTableServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //
-            HttpSession session = request.getSession();
-            int id = (int)session.getAttribute("iid");
-        //
-        id = Integer.parseInt(request.getParameter("id"));
+
+        HttpSession session = request.getSession();
+        int id = (int)session.getAttribute("idd");
+
         String s_from = request.getParameter("from");
         String s_to = request.getParameter("to");
         ArrayList<Date> dates = new ArrayList<>();
