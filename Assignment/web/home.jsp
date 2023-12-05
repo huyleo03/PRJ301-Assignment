@@ -152,13 +152,7 @@
                 <div class="main-links">
                     <a href="timetable">TimeTable</a>
                     <a href="chay">Attendance Report</a>
-                    <div class="user-menu">
-                        <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
-                        <div class="dropdown">
-                            <a href="login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
-                            <a href="logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
-                        </div>
-                    </div>
+                    <a href="logout">Đăng xuất</a>
                 </div>
             </div>
         </nav>

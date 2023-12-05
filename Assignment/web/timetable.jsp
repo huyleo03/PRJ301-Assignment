@@ -89,9 +89,28 @@
             }
 
             .w3-bar-item {
-                 display: block;
-/*                display: list-item;
-                list-style-type: none;  Nếu bạn không muốn hiển thị bullet points */
+                display: block;
+                padding: 10px;
+
+            }
+
+            .w3-sidebar .w3-bar-block .w3-bar-item {
+                padding: 20px;
+                text-decoration: none;
+                font-size: 18px;
+                display: block;
+                color: orange;
+                transition: 0.3s;
+            }
+
+            /* Change color on hover */
+            .w3-sidebar .w3-bar-block .w3-bar-item:hover {
+                background-color: #555;
+                color: #fff;
+            }
+            .sidebar-links {
+                width: 80%; /* Full width of the sidebar */
+                text-align: center; /* Center text for all child elements */
             }
 
 
@@ -99,21 +118,18 @@
         </style>
     </head>
     <body>
-        <!-- Thanh bên (sidebar) -->
         <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-            <button class="w3-bar-item w3-button w3-large"
-                    onclick="w3_close()">Close &times;</button>
-            <a href="#" class="w3-bar-item w3-button">Link 1</a>
-            <a href="#" class="w3-bar-item w3-button">Link 2</a>
-            <a href="#" class="w3-bar-item w3-button">Link 3</a>
+            <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+            <div class="sidebar-links">
+                <a href="chay" class="w3-bar-item w3-button">Attendance Report</a>
+                <a href="logout" class="w3-bar-item w3-button">Log out</a>
+            </div>
         </div>
+
 
         <div id="main">
             <div class="w3-teal">
                 <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-                <!--                <div class="w3-container">
-                                    <h1>My Page</h1>
-                                </div>-->
             </div>
 
             <div class="form-container">
@@ -142,6 +158,12 @@
                                     <c:if test="${k.date eq d and k.slot.id eq s.id}">
                                         <a href="att?id=${k.id}">
                                             ${k.group.name}-${k.group.subject.name}-${k.room.id}
+                                            <c:if test="${k.isAtt}">
+                                                (attended)
+                                            </c:if>
+                                            <c:if test="${!k.isAtt}">
+                                                (not yet)
+                                            </c:if>
                                         </a>
                                     </c:if>
                                 </c:forEach>

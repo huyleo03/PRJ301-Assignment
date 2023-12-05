@@ -13,7 +13,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-    <center>
+         <header>
+            <h2>Welcome ${sessionScope.account.username}</h2>
+        </header>
+        <nav>
+            <div class="links-container">
+                <div class="main-links">
+                    <a href="timetable">TimeTable</a>
+                    <a href="chay">Attendance Report</a>
+                    <a href="logout">Đăng xuất</a>
+                </div>
+            </div>
+        </nav>
         <form action="atttendReport" method="get">
             <select name="classes">
                 <c:forEach var="group" items="${requestScope.sub}">
@@ -25,8 +36,14 @@
             <input type="hidden" name="groupId" id="groupId" value="" /> <!-- Hidden input for groupId -->
             <input type="submit" value="VIEW" onclick="setGroupId();" />
         </form>
+         <div class="content">
+            <img src="img/z4822671201061_584bbc228ed04a7a68cc254f33c9dde9.jpg" alt="Image Description" />
+        </div>
+                <footer>
+            <p>Hogward University</p>
+        </footer>
 
-    </center>
+
     <script>
         function setGroupId() {
             // Get the selected value from the select element and set it to the hidden input field

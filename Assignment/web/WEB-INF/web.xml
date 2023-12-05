@@ -7,7 +7,10 @@
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/timetable</url-pattern>
+        <url-pattern>/timetable.jsp</url-pattern>
         <url-pattern>/att.jsp</url-pattern>
+        <url-pattern>/chay</url-pattern>
+        <url-pattern>/atttendReport</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>AttendanceTakingServlet</servlet-name>

@@ -35,6 +35,7 @@ public class chayChoBoMay extends HttpServlet {
         int id = (int) session.getAttribute("idd");
         GrSubDAO db = new GrSubDAO();
         List<GrSub> sub = db.getAll(id);
+        session.setAttribute("sub", sub);
         request.setAttribute("sub", sub);
         request.setAttribute("instructorId", id);
         request.getRequestDispatcher("taking.jsp").forward(request, response);

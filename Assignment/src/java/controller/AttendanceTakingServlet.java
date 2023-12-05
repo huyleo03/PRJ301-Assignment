@@ -74,6 +74,7 @@ public class AttendanceTakingServlet extends HttpServlet {
         }
         SessionDBContext sesDB = new SessionDBContext();
         sesDB.addAttendences(ses);
+//        request.getRequestDispatcher("getback.jsp").forward(request, response);
         response.getWriter().println("done");
     }
 
